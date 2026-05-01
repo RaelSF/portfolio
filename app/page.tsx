@@ -390,8 +390,7 @@ export default function Home() {
             <div className="flex flex-col items-center md:items-start gap-2">
               <p className="text-sm font-medium">
                 <span className="text-foreground">rafael</span>
-                <span className="text-accent">.</span>
-                <span className="text-muted">dev</span>
+                <span className="text-accent">figueiredo</span>
               </p>
               <p className="text-xs text-muted">
                 © {new Date().getFullYear()} {PERSONAL_DATA.name}. Todos os direitos reservados.
