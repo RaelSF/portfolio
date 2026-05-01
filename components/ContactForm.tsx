@@ -26,15 +26,14 @@ export function ContactForm() {
         body: json,
       });
 
-      const result = await response.json();
-
-      if (result.success) {
+      if (response.ok || response.status === 200) {
         toast.success("Mensagem enviada com sucesso! Responderei em breve.");
         event.currentTarget.reset();
       } else {
-        toast.error("Ocorreu um erro. Tente novamente mais tarde.");
+        toast.error("Ocorreu um erro no servidor. Tente novamente mais tarde.");
       }
-    } catch {
+    } catch (error) {
+      console.error("Erro na request:", error);
       toast.error("Erro de conexão. Verifique sua internet.");
     }
     setIsSending(false);
