@@ -14,7 +14,7 @@ export function ContactForm() {
     setIsSending(true);
 
     const formData = new FormData(event.currentTarget);
-    formData.append("access_key", "b33e7f90-8c9b-43e2-aac3-d951248b7678");
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "");
 
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
