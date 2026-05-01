@@ -13,7 +13,8 @@ export function ContactForm() {
     event.preventDefault();
     setIsSending(true);
 
-    const formData = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const formData = new FormData(formElement);
     formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "");
 
     const object = Object.fromEntries(formData);
@@ -28,7 +29,7 @@ export function ContactForm() {
 
       if (response.ok || response.status === 200) {
         toast.success("Mensagem enviada com sucesso! Responderei em breve.");
-        event.currentTarget.reset();
+        formElement.reset();
       } else {
         toast.error("Ocorreu um erro no servidor. Tente novamente mais tarde.");
       }
